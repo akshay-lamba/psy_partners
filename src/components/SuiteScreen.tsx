@@ -6,30 +6,12 @@ import {
   Briefcase, Globe, Cpu, BarChart, Eye, Layout, Users
 } from 'lucide-react';
 import { motion } from 'motion/react';
+import Navbar from './Navbar';
 
 export default function SuiteScreen() {
   return (
     <div className="w-full bg-void text-text-primary selection:bg-gold selection:text-void">
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 glass-panel px-8 py-5 flex justify-between items-center border-b border-white/5">
-        <div className="flex items-center gap-3">
-          <span className="text-3xl text-gold font-serif">Ψ</span>
-          <span className="font-display font-medium tracking-[0.2em] uppercase text-xs">Psy Partners</span>
-        </div>
-        <div className="hidden lg:flex gap-12 font-mono text-[10px] uppercase tracking-[0.2em] text-text-muted">
-          <a href="#problem" className="hover:text-gold transition-colors">The Problem</a>
-          <a href="#boardguard" className="hover:text-gold transition-colors">BoardGuard AI</a>
-          <a href="#transition" className="hover:text-gold transition-colors">Transition AI</a>
-          <a href="#velocity" className="hover:text-gold transition-colors">Velocity AI</a>
-          <a href="#differentiation" className="hover:text-gold transition-colors">Differentiation</a>
-        </div>
-        <a 
-          href="mailto:info@psy.partners"
-          className="px-6 py-2 border border-gold/30 text-gold font-mono text-[10px] uppercase tracking-widest hover:bg-gold hover:text-void transition-all duration-500"
-        >
-          Inquire
-        </a>
-      </nav>
+      <Navbar />
 
       {/* Hero Section: The AI Transition System */}
       <section className="min-h-screen flex flex-col items-center justify-center relative px-6 pt-32 pb-20 overflow-hidden">
