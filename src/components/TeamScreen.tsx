@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import Navbar from './Navbar';
-import { Mail, Linkedin } from 'lucide-react';
+import Footer from './Footer';
 
 export default function TeamScreen() {
   const team = [
@@ -18,10 +18,10 @@ export default function TeamScreen() {
   ];
 
   return (
-    <div className="w-full bg-void text-text-primary selection:bg-gold selection:text-void min-h-screen">
+    <div className="w-full bg-void text-text-primary selection:bg-gold selection:text-void min-h-screen flex flex-col">
       <Navbar />
 
-      <section className="pt-40 pb-20 px-6 relative overflow-hidden min-h-screen">
+      <section className="flex-grow pt-40 pb-20 px-6 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#1A1A1A_0%,#050505_100%)]"></div>
         
         <div className="max-w-6xl mx-auto relative z-10">
@@ -53,9 +53,9 @@ export default function TeamScreen() {
                 <div className="relative w-full max-w-sm aspect-[4/5] mb-8 overflow-hidden rounded-3xl border border-white/5 glass-panel">
                   <div className="absolute inset-0 bg-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
                   <img 
-                    src={member.image} 
-                    alt={member.name} 
-                    className="w-full h-full object-cover object-center filter grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105"
+                     src={member.image} 
+                     alt={member.name} 
+                     className="w-full h-full object-cover object-center filter grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-void/90 via-void/20 to-transparent"></div>
                   
@@ -70,22 +70,7 @@ export default function TeamScreen() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-20 px-6 text-center border-t border-white/5 relative z-10 bg-void">
-        <div className="max-w-4xl mx-auto">
-          <span className="text-4xl text-gold font-serif mb-6 block">Ψ</span>
-          <p className="font-mono text-xs tracking-[0.4em] text-text-muted uppercase mb-12">
-            Psy Partners AI Advisory
-          </p>
-          
-          <div className="flex flex-col md:flex-row items-center justify-center gap-12 border-t border-white/5 pt-12">
-            <div className="text-left">
-              <span className="font-mono text-[10px] uppercase tracking-widest text-gold block mb-2">Contact</span>
-              <a href="mailto:info@psy.partners" className="text-sm font-light text-text-muted hover:text-gold transition-colors">info@psy.partners</a>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
