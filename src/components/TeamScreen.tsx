@@ -14,6 +14,11 @@ export default function TeamScreen() {
       name: "Nick Hamelin",
       role: "Managing Partner - Education AI",
       image: "https://static.wixstatic.com/media/b20068_57b16edf928f403d88dd1d161ef8ac68~mv2.png"
+    },
+    {
+      name: "Gautam Mohanty",
+      role: "Managing Partner - Real Estate AI",
+      image: "https://static.wixstatic.com/media/b20068_7d08c13fe65f4c2d9caa84f6944c43b2~mv2.png"
     }
   ];
 
@@ -24,7 +29,7 @@ export default function TeamScreen() {
       <section className="flex-grow pt-40 pb-20 px-6 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#1A1A1A_0%,#050505_100%)]"></div>
         
-        <div className="max-w-6xl mx-auto relative z-10">
+        <div className="max-w-7xl mx-auto relative z-10">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -40,7 +45,7 @@ export default function TeamScreen() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-16 lg:gap-24">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
             {team.map((member, idx) => (
               <motion.div 
                 key={member.name}
