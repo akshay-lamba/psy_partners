@@ -3,8 +3,14 @@ import { Rocket, TrendingUp } from 'lucide-react';
 import { motion } from 'motion/react';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import usePageSEO from '../hooks/usePageSEO';
 
 export default function VelocityScreen() {
+  usePageSEO({
+    title: "Velocity AI | Psy Partners",
+    description: "Executive AI Acceleration Program: Integrates AI into live CXO workflows for velocity improvement."
+  });
+
   return (
     <div className="w-full bg-void text-text-primary selection:bg-gold selection:text-void flex flex-col min-h-screen">
       <Navbar />

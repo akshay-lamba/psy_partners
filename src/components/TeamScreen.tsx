@@ -2,23 +2,38 @@ import React from 'react';
 import { motion } from 'motion/react';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import usePageSEO from '../hooks/usePageSEO';
 
 export default function TeamScreen() {
+  usePageSEO({
+    title: "Team & Credentials | Psy Partners",
+    description: "Psy Partners is led by industry veterans bridging the gap between enterprise strategy and deep AI integration."
+  });
+
   const team = [
     {
       name: "Akshay Lamba",
       role: "Managing Partner - Business AI",
-      image: "https://static.wixstatic.com/media/b20068_cafbe1c9ca214fc8aa0cee04a3415c07~mv2.png"
+      image: "https://static.wixstatic.com/media/b20068_cafbe1c9ca214fc8aa0cee04a3415c07~mv2.png",
+      slide: "https://static.wixstatic.com/media/b20068_be9a2eac7e554d90a671c83ddff5edcc~mv2.jpeg"
     },
     {
       name: "Nick Hamelin",
       role: "Managing Partner - Education AI",
-      image: "https://static.wixstatic.com/media/b20068_57b16edf928f403d88dd1d161ef8ac68~mv2.png"
+      image: "https://static.wixstatic.com/media/b20068_57b16edf928f403d88dd1d161ef8ac68~mv2.png",
+      slide: "https://static.wixstatic.com/media/b20068_ed2d05a5acbe49f289a6a38fb8316306~mv2.jpeg"
     },
     {
       name: "Gautam Mohanty",
       role: "Managing Partner - Real Estate AI",
-      image: "https://static.wixstatic.com/media/b20068_7d08c13fe65f4c2d9caa84f6944c43b2~mv2.png"
+      image: "https://static.wixstatic.com/media/b20068_7d08c13fe65f4c2d9caa84f6944c43b2~mv2.png",
+      slide: "https://static.wixstatic.com/media/b20068_498890d72d524268b28b1600976b8264~mv2.jpeg"
+    },
+    {
+      name: "Gitanjali Bandha",
+      role: "Managing Partner - Law AI",
+      image: "https://static.wixstatic.com/media/b20068_ee8a3efb7d9a4cb683b9b52abf61970a~mv2.png",
+      slide: "https://static.wixstatic.com/media/b20068_e91b64f1ebed4619bb65289647af1252~mv2.jpeg"
     }
   ];
 
@@ -45,7 +60,7 @@ export default function TeamScreen() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 justify-center">
             {team.map((member, idx) => (
               <motion.div 
                 key={member.name}
@@ -71,6 +86,37 @@ export default function TeamScreen() {
                 </div>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-32 px-6 border-t border-white/5 relative bg-charcoal">
+        <div className="max-w-7xl mx-auto">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-24"
+          >
+            <h2 className="font-mono text-[10px] text-gold uppercase tracking-[0.4em] mb-4">Detailed Profiles</h2>
+            <h3 className="font-serif text-4xl text-white italic">Partner Credentials</h3>
+          </motion.div>
+
+          <div className="flex flex-col gap-24 md:gap-32">
+            {team.map((member, idx) => member.slide ? (
+              <motion.div 
+                key={`${member.name}-slide`}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="w-full flex justify-center"
+              >
+                <div className="w-full max-w-5xl rounded-2xl overflow-hidden glass-panel border border-white/10 shadow-2xl p-2 bg-void/30">
+                  <img src={member.slide} alt={`${member.name} credentials`} className="w-full h-auto object-contain rounded-xl opacity-90 hover:opacity-100 transition-opacity" />
+                </div>
+              </motion.div>
+            ) : null)}
           </div>
         </div>
       </section>

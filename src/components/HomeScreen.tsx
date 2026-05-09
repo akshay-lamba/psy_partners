@@ -4,8 +4,14 @@ import { motion } from 'motion/react';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import PsiLogo from './PsiLogo';
+import usePageSEO from '../hooks/usePageSEO';
 
 export default function HomeScreen() {
+  usePageSEO({
+    title: "Psy Partners | The AI Transition System",
+    description: "Board-level AI governance and transition readiness advisory services. From Governance Paralysis to Deployed Advantage."
+  });
+
   return (
     <div className="w-full bg-void text-text-primary selection:bg-gold selection:text-void flex flex-col min-h-screen">
       <Navbar />

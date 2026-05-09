@@ -3,8 +3,14 @@ import { Eye } from 'lucide-react';
 import { motion } from 'motion/react';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import usePageSEO from '../hooks/usePageSEO';
 
 export default function BoardGuardScreen() {
+  usePageSEO({
+    title: "BoardGuard AI | Psy Partners",
+    description: "AI Governance & Navigation Program: Installing sector-specific governance rails that remove uncertainty."
+  });
+
   return (
     <div className="w-full bg-void text-text-primary selection:bg-gold selection:text-void flex flex-col min-h-screen">
       <Navbar />
