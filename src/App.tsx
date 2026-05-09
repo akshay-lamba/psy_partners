@@ -4,10 +4,12 @@ import BoardGuardScreen from './components/BoardGuardScreen';
 import TransitionScreen from './components/TransitionScreen';
 import VelocityScreen from './components/VelocityScreen';
 import TeamScreen from './components/TeamScreen';
+import ScrollToTop from './components/ScrollToTop';
 
 export default function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <div className="flex flex-col min-h-screen bg-void text-text-primary font-body overflow-x-hidden">
         <Routes>
           <Route path="/" element={<HomeScreen />} />
