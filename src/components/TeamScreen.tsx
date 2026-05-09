@@ -34,6 +34,12 @@ export default function TeamScreen() {
       role: "Managing Partner - Law AI",
       image: "https://static.wixstatic.com/media/b20068_ee8a3efb7d9a4cb683b9b52abf61970a~mv2.png",
       slide: "https://static.wixstatic.com/media/b20068_e91b64f1ebed4619bb65289647af1252~mv2.jpeg"
+    },
+    {
+      name: "Shree Parthasarathy",
+      role: "Managing Partner - Trust AI",
+      image: "https://static.wixstatic.com/media/b20068_6e2864cd7d9a4f41b1f2492fc9cc742b~mv2.png",
+      slide: "https://static.wixstatic.com/media/b20068_2c36635441524f078976e314ee56c4a2~mv2.jpeg"
     }
   ];
 
@@ -60,7 +66,7 @@ export default function TeamScreen() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 justify-center">
+          <div className="flex flex-wrap justify-center gap-8 lg:gap-12">
             {team.map((member, idx) => (
               <motion.div 
                 key={member.name}
@@ -68,9 +74,9 @@ export default function TeamScreen() {
                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: idx * 0.2 }}
-                className="group flex flex-col items-center"
+                className="group flex flex-col items-center w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-2rem)] xl:w-[calc(20%-1.5rem)] max-w-sm"
               >
-                <div className="relative w-full max-w-sm aspect-[4/5] mb-8 overflow-hidden rounded-3xl border border-white/5 glass-panel">
+                <div className="relative w-full aspect-[4/5] mb-8 overflow-hidden rounded-3xl border border-white/5 glass-panel">
                   <div className="absolute inset-0 bg-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
                   <img 
                      src={member.image} 
