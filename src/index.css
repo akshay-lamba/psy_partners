@@ -3,10 +3,10 @@
 
 @theme {
   --color-void: #000000;
-  --color-charcoal: #1A1A1A;
-  --color-surface: rgba(26, 26, 26, 0.6);
-  --color-gold: #C5A059;
-  --color-gold-muted: rgba(197, 160, 89, 0.2);
+  --color-charcoal: #0D0D0D;
+  --color-surface: rgba(13, 13, 13, 0.6);
+  --color-gold: #B87333;
+  --color-gold-muted: rgba(184, 115, 51, 0.2);
   --color-text-primary: #EAEAEA;
   --color-text-muted: #888899;
   --font-serif: "Cormorant Garamond", serif;
@@ -17,6 +17,8 @@
 
 body {
   background-color: var(--color-void);
+  background-image: radial-gradient(circle at center, #0D0D0D 0%, #000000 100%);
+  background-attachment: fixed;
   color: var(--color-text-primary);
   font-family: var(--font-body);
 }
@@ -46,7 +48,7 @@ body {
 }
 
 .gold-gradient {
-  background: linear-gradient(135deg, #C5A059 0%, #8E6F3E 100%);
+  background: linear-gradient(135deg, #B87333 0%, #6E4628 100%);
 }
 
 .text-balance {

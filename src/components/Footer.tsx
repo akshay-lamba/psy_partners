@@ -6,8 +6,11 @@ export default function Footer() {
     <footer className="py-20 px-6 text-center border-t border-white/5 relative z-10 bg-void">
       <div className="max-w-4xl mx-auto">
         <PsiLogo className="w-12 h-12 mx-auto mb-6 block" />
-        <p className="font-mono text-xs tracking-[0.4em] text-text-muted uppercase mb-12">
+        <p className="font-mono text-xs tracking-[0.4em] text-text-muted uppercase mb-4">
           Psy Partners AI Advisory
+        </p>
+        <p className="font-mono text-[9px] tracking-[0.4em] text-gold/50 uppercase mb-12">
+          #TransitionNotTransformation &nbsp; #EverythingEverytime
         </p>
         
         <div className="flex flex-col md:flex-row items-center justify-center gap-12 border-t border-white/5 pt-12">

@@ -48,7 +48,7 @@ export default function TeamScreen() {
       <Navbar />
 
       <section className="flex-grow pt-40 pb-20 px-6 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#1A1A1A_0%,#000000_100%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#0D0D0D_0%,#000000_100%)]"></div>
         
         <div className="max-w-7xl mx-auto relative z-10">
           <motion.div 

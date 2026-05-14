@@ -34,7 +34,7 @@ export default function IntelligenceScreen() {
 
       <main className="flex-grow pt-32">
         {/* Hero Section */}
-        <section className="px-6 pb-20 border-b border-white/5 bg-[radial-gradient(circle_at_top_right,rgba(197,160,89,0.05),transparent_40%)]">
+        <section className="px-6 pb-20 border-b border-white/5 bg-[radial-gradient(circle_at_top_right,rgba(184,115,51,0.05),transparent_40%)]">
           <div className="max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -44,16 +44,21 @@ export default function IntelligenceScreen() {
               <h1 className="font-display text-5xl md:text-7xl lg:text-8xl text-white tracking-tight leading-[0.9] mb-8">
                 TRANSITION <br /> <span className="text-gold">SIGNALS.</span>
               </h1>
-              <p className="max-w-2xl font-serif text-xl text-text-muted leading-relaxed">
-                We move organizations from Governance Paralysis to Deployed Advantage. No fluff. No generic consulting. Just sector-specific intelligence terminals.
-              </p>
+              <div className="flex items-center gap-6 mb-8">
+                <p className="max-w-2xl font-serif text-xl text-text-muted leading-relaxed">
+                  We move organizations from Governance Paralysis to Deployed Advantage. No fluff. No generic consulting. Just sector-specific intelligence terminals.
+                </p>
+              </div>
+              <div className="font-mono text-[10px] text-gold/60 uppercase tracking-[0.4em]">
+                #TransitionNotTransformation &nbsp; #EverythingEverytime
+              </div>
             </motion.div>
           </div>
         </section>
 
         {/* Transition Signals Grid */}
         <section className="py-24 px-6 relative overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(197,160,89,0.03),transparent_50%)]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(184,115,51,0.03),transparent_50%)]"></div>
           
           <div className="max-w-7xl mx-auto relative z-10">
             <div className="text-center mb-20">

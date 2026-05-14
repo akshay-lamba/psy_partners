@@ -19,7 +19,7 @@ export default function HomeScreen() {
       <main className="flex-grow">
         {/* Hero Section */}
         <section className="min-h-screen flex flex-col items-center justify-center relative px-6 pt-32 pb-20 overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#1A1A1A_0%,#000000_100%)]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#0D0D0D_0%,#000000_100%)]"></div>
           
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
