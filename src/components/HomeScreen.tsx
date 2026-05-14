@@ -19,7 +19,7 @@ export default function HomeScreen() {
       <main className="flex-grow">
         {/* Hero Section */}
         <section className="min-h-screen flex flex-col items-center justify-center relative px-6 pt-32 pb-20 overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#1A1A1A_0%,#050505_100%)]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#1A1A1A_0%,#000000_100%)]"></div>
           
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -28,7 +28,7 @@ export default function HomeScreen() {
             className="z-10 w-full max-w-6xl text-center"
           >
             <div className="flex flex-col items-center mb-12">
-              <PsiLogo className="w-16 h-16 text-gold mb-4" strokeWidth={1} />
+              <PsiLogo className="w-16 h-16 mb-4" />
               <h2 className="font-display text-4xl text-white tracking-widest uppercase">Psy Partners</h2>
               <p className="font-mono text-xs text-text-muted tracking-[0.4em] uppercase mt-2">Transition. Not Transformation.</p>
             </div>

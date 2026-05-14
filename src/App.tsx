@@ -4,6 +4,7 @@ import BoardGuardScreen from './components/BoardGuardScreen';
 import TransitionScreen from './components/TransitionScreen';
 import VelocityScreen from './components/VelocityScreen';
 import TeamScreen from './components/TeamScreen';
+import IntelligenceScreen from './components/IntelligenceScreen';
 import ScrollToTop from './components/ScrollToTop';
 
 export default function App() {
@@ -16,6 +17,7 @@ export default function App() {
           <Route path="/boardguard" element={<BoardGuardScreen />} />
           <Route path="/transition" element={<TransitionScreen />} />
           <Route path="/velocity" element={<VelocityScreen />} />
+          <Route path="/pov" element={<IntelligenceScreen />} />
           <Route path="/team" element={<TeamScreen />} />
         </Routes>
       </div>

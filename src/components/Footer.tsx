@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="py-20 px-6 text-center border-t border-white/5 relative z-10 bg-void">
       <div className="max-w-4xl mx-auto">
-        <PsiLogo className="w-12 h-12 text-gold mx-auto mb-6 block" strokeWidth={1} />
+        <PsiLogo className="w-12 h-12 mx-auto mb-6 block" />
         <p className="font-mono text-xs tracking-[0.4em] text-text-muted uppercase mb-12">
           Psy Partners AI Advisory
         </p>
