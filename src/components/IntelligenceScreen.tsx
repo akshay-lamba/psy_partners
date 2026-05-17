@@ -7,18 +7,36 @@ import usePageSEO from '../hooks/usePageSEO';
 
 const signals = [
   {
-    id: "001",
-    author: "Nick Hamelin",
-    pdfUrl: "https://b2006858-57c1-480a-9730-8e9f2057acb9.usrfiles.com/ugd/b20068_cbb3d8eb8ac648538736b348c9dbba3f.pdf",
-    title: "The AI Transition System",
-    excerpt: "From Governance Paralysis to Deployed Advantage. A comprehensive framework for moving organizational intelligence from pilot stall to compounding capability.",
+    id: "004",
+    author: "Akshay Lamba",
+    domain: "Business AI",
+    pdfUrl: "https://b2006858-57c1-480a-9730-8e9f2057acb9.usrfiles.com/ugd/b20068_33c1ee7f74bd4f858edd4fdd841cc97c.pdf",
+    title: "Your Data Never Leaves Your Building",
+    excerpt: "You own the intelligence outright — the hardware, the model, the outputs. It compounds in business value the longer you run it. Every competitor using rented cloud tools is feeding their business data to someone else's servers.",
+  },
+  {
+    id: "003",
+    author: "Gautam Mohanty",
+    domain: "Real Estate AI",
+    pdfUrl: "https://b2006858-57c1-480a-9730-8e9f2057acb9.usrfiles.com/ugd/b20068_7908a710fe444ab2899aa30fbc6bfa57.pdf",
+    title: "Sovereign AI Design",
+    excerpt: "Instead of relying on external providers who can change rules or raise prices, a sovereign moat is built on a private, secure internal AI setup. This ensures that your most precious asset—your corporate intelligence—stays 'in your house' and remains safe from the outside world.",
   },
   {
     id: "002",
     author: "Akshay Lamba",
+    domain: "Business AI",
     pdfUrl: "https://b2006858-57c1-480a-9730-8e9f2057acb9.usrfiles.com/ugd/b20068_002c510789154f0885f2ead1f13a31ef.pdf",
     title: "The Career Stack",
     excerpt: "Why every layer of the organization has the same AI story — and why every layer is wrong in the same way. Scaling judgment over output.",
+  },
+  {
+    id: "001",
+    author: "Dr. Nicholas Hamelin",
+    domain: "Education AI",
+    pdfUrl: "https://b2006858-57c1-480a-9730-8e9f2057acb9.usrfiles.com/ugd/b20068_cbb3d8eb8ac648538736b348c9dbba3f.pdf",
+    title: "The AI Transition System",
+    excerpt: "From Governance Paralysis to Deployed Advantage. A comprehensive framework for moving organizational intelligence from pilot stall to compounding capability.",
   }
 ];
 
@@ -66,7 +84,7 @@ export default function IntelligenceScreen() {
               <p className="font-mono text-[10px] text-text-muted tracking-[0.4em] uppercase">Intelligence Drops / Point of View</p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {signals.map((signal, idx) => (
                 <motion.div 
                   key={signal.id}
@@ -74,42 +92,54 @@ export default function IntelligenceScreen() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1 }}
-                  className="group relative overflow-hidden rounded-2xl border border-white/5 bg-white/[0.02] hover:border-gold/30 hover:bg-white/[0.05] transition-all duration-700 p-8 flex flex-col h-full"
+                  className="group relative overflow-hidden rounded-2xl border border-white/5 bg-white/[0.02] hover:border-gold/30 hover:bg-white/[0.05] transition-all duration-700 p-10 flex flex-col h-full"
                 >
-                  <div className="absolute top-0 right-0 p-6">
-                    <FileText className="w-8 h-8 text-gold/20 group-hover:text-gold transition-colors duration-500" />
+                  <div className="absolute top-0 right-0 p-8">
+                    <FileText className="w-10 h-10 text-gold/10 group-hover:text-gold/20 transition-colors duration-500" />
                   </div>
                   
                   <div className="flex flex-col h-full relative z-10">
-                    <div className="font-mono text-gold mb-4 text-[9px] tracking-widest uppercase flex items-center gap-2">
-                       <span>#{signal.id}</span>
-                       <span className="w-4 h-[1px] bg-gold/30"></span>
-                       <span>{signal.author}</span>
+                    <div className="font-mono text-gold mb-2 text-[10px] tracking-[0.2em] uppercase">
+                       Transition Signal #{signal.id}
                     </div>
-                    <h3 className="font-display text-xl text-white mb-4 group-hover:text-gold transition-colors line-clamp-2">{signal.title}</h3>
-                    <p className="font-serif text-sm text-text-muted mb-8 flex-grow leading-relaxed">
-                      {signal.excerpt}
-                    </p>
                     
-                    <div className="flex flex-col gap-3 mt-auto">
+                    <div className="mb-8">
+                      <h3 className="font-display text-2xl text-white group-hover:text-gold transition-colors duration-500 leading-tight">
+                        {signal.author}
+                      </h3>
+                      <div className="font-mono text-[9px] text-text-muted uppercase tracking-[0.3em] mt-1">
+                        Managing Partner — {signal.domain}
+                      </div>
+                    </div>
+
+                    <div className="mb-10">
+                      <h4 className="font-serif text-xl text-white/90 mb-4 italic leading-snug">
+                        "{signal.title}"
+                      </h4>
+                      <p className="font-serif text-lg text-text-muted leading-relaxed">
+                        {signal.excerpt}
+                      </p>
+                    </div>
+                    
+                    <div className="mt-auto pt-6 border-t border-white/5">
                       {(signal as any).pdfUrl ? (
                         <a 
                           href={(signal as any).pdfUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-white/60 font-mono text-[9px] uppercase tracking-widest flex items-center gap-2 hover:text-gold transition-colors"
+                          className="inline-flex items-center gap-3 text-white/80 font-mono text-[10px] uppercase tracking-[0.2em] group/link hover:text-gold transition-colors px-4 py-2 border border-white/10 rounded-full hover:border-gold/30 bg-white/5"
                         >
-                          Deep Dive <ArrowRight className="w-3 h-3" />
+                          Download POV <ArrowRight className="w-3 h-3 transition-transform group-hover/link:translate-x-1" />
                         </a>
                       ) : (
-                        <button className="text-white/60 font-mono text-[9px] uppercase tracking-widest flex items-center gap-2 hover:text-gold transition-colors">
-                          Deep Dive <ArrowRight className="w-3 h-3" />
+                        <button className="inline-flex items-center gap-3 text-white/40 font-mono text-[10px] uppercase tracking-[0.2em] px-4 py-2 border border-white/5 rounded-full cursor-not-allowed">
+                          Coming Soon <ArrowRight className="w-3 h-3" />
                         </button>
                       )}
                     </div>
                   </div>
 
-                  <div className="absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-gold to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  <div className="absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-gold/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 </motion.div>
               ))}
             </div>
