@@ -19,7 +19,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-0 w-full z-50 bg-void px-6 md:px-8 py-5 flex justify-between items-center border-b border-white/5">
+      <nav className="fixed top-0 w-full z-50 bg-void/80 backdrop-blur-md px-6 md:px-8 py-5 flex justify-between items-center border-b border-white/5">
         <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity z-50">
           <PsiLogo className="w-8 h-8" />
           <span className="font-display font-medium tracking-[0.2em] uppercase text-xs">Psy Partners</span>

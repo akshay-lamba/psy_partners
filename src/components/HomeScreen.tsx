@@ -3,7 +3,6 @@ import { Layers, Zap } from 'lucide-react';
 import { motion } from 'motion/react';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import PsiLogo from './PsiLogo';
 import usePageSEO from '../hooks/usePageSEO';
 
 export default function HomeScreen() {
