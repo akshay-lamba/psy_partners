@@ -18,7 +18,7 @@ export default function TeamScreen() {
       slide: "https://static.wixstatic.com/media/b20068_be9a2eac7e554d90a671c83ddff5edcc~mv2.jpeg"
     },
     {
-      name: "Dr. Nicholas Hamelin",
+      name: "Dr. Nicolas Hamelin",
       role: "Managing Partner - Education AI",
       image: "https://static.wixstatic.com/media/b20068_57b16edf928f403d88dd1d161ef8ac68~mv2.png",
       slide: "https://static.wixstatic.com/media/b20068_ed2d05a5acbe49f289a6a38fb8316306~mv2.jpeg"

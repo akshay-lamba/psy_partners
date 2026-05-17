@@ -32,7 +32,7 @@ const signals = [
   },
   {
     id: "001",
-    author: "Dr. Nicholas Hamelin",
+    author: "Dr. Nicolas Hamelin",
     domain: "Education AI",
     pdfUrl: "https://b2006858-57c1-480a-9730-8e9f2057acb9.usrfiles.com/ugd/b20068_cbb3d8eb8ac648538736b348c9dbba3f.pdf",
     title: "The AI Transition System",

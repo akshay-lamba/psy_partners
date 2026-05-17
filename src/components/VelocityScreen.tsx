@@ -55,7 +55,7 @@ export default function VelocityScreen() {
               
               <div className="grid grid-cols-1 gap-4">
                 <p className="font-mono text-[10px] text-gold uppercase tracking-widest mb-2">From Uncertainty to Market Dominance</p>
-                <div className="grid grid-cols-3 gap-2">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                   {[
                     { title: "BoardGuard AI", focus: "Governance", outcome: "Strategic Conviction" },
                     { title: "Transition AI", focus: "Operating Model", outcome: "Execution Readiness" },

@@ -28,7 +28,6 @@ export default function HomeScreen() {
             className="z-10 w-full max-w-6xl text-center"
           >
             <div className="flex flex-col items-center mb-12">
-              <PsiLogo className="w-16 h-16 mb-4" />
               <h2 className="font-display text-4xl text-white tracking-widest uppercase">Psy Partners</h2>
               <p className="font-mono text-xs text-text-muted tracking-[0.4em] uppercase mt-2">Transition. Not Transformation.</p>
             </div>
@@ -149,18 +148,47 @@ export default function HomeScreen() {
           </div>
         </section>
 
-        {/* System Logic */}
-        <section className="py-32 px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="font-mono text-[10px] text-gold uppercase tracking-[0.4em] mb-8">The System</h2>
-            <h3 className="font-serif text-5xl text-white italic mb-12">How the programs compound</h3>
-            <p className="text-xl text-text-muted font-light leading-relaxed mb-16 text-balance">
-              Each program is self-contained. But the system compounds when used in sequence. 
-              BoardGuard AI removes paralysis. Transition AI builds the foundation. Velocity AI deploys the advantage.
-            </p>
-            <div className="inline-block px-12 py-6 border border-gold/30 rounded-full bg-gold/5">
-              <span className="font-display text-2xl text-white uppercase tracking-[0.2em]">Institutional AI Advantage</span>
-            </div>
+        {/* Final CTA Section */}
+        <section className="py-40 px-6 relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(184,115,51,0.05),transparent_70%)]"></div>
+          
+          <div className="max-w-5xl mx-auto relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="group relative overflow-hidden rounded-[2rem] border border-gold/20 bg-black p-12 md:p-20 text-center"
+            >
+              {/* Decorative elements */}
+              <div className="absolute top-0 left-0 w-64 h-64 bg-gold/5 rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2"></div>
+              <div className="absolute bottom-0 right-0 w-64 h-64 bg-gold/5 rounded-full blur-[100px] translate-x-1/2 translate-y-1/2"></div>
+              
+              <div className="relative z-10">
+                <h2 className="font-serif text-4xl md:text-6xl text-white italic mb-8 leading-tight">
+                  Build your structural business advantage with Psy Partners.
+                </h2>
+                
+                <div className="flex flex-col items-center gap-6">
+                  <a 
+                    href="https://b2006858-57c1-480a-9730-8e9f2057acb9.usrfiles.com/ugd/b20068_d95c2f34c0ca418f8121c9fa4bf965eb.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group/btn relative px-12 py-5 bg-gold text-void font-mono text-xs uppercase tracking-[0.3em] font-bold rounded-full overflow-hidden transition-transform hover:scale-105 active:scale-95"
+                  >
+                    <span className="relative z-10">Download Strategy Deck</span>
+                    <div className="absolute inset-0 bg-white opacity-0 group-hover/btn:opacity-20 transition-opacity"></div>
+                  </a>
+                  
+                  <p className="font-serif italic text-text-muted/60 text-sm">
+                    Psy Partners — Transition. Not Transformation.
+                  </p>
+                </div>
+              </div>
+
+              {/* Edge glow */}
+              <div className="absolute inset-0 border border-gold/10 rounded-[2rem] group-hover:border-gold/30 transition-colors duration-700"></div>
+            </motion.div>
           </div>
         </section>
 

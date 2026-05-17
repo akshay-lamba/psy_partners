@@ -20,6 +20,14 @@ export default function usePageSEO({ title, description }: { title: string, desc
         document.head.appendChild(ogDescription);
       }
       ogDescription.setAttribute('content', description);
+
+      let twitterDescription = document.querySelector('meta[name="twitter:description"]');
+      if (!twitterDescription) {
+        twitterDescription = document.createElement('meta');
+        twitterDescription.setAttribute('name', 'twitter:description');
+        document.head.appendChild(twitterDescription);
+      }
+      twitterDescription.setAttribute('content', description);
     }
     
     let ogTitle = document.querySelector('meta[property="og:title"]');
@@ -29,6 +37,14 @@ export default function usePageSEO({ title, description }: { title: string, desc
       document.head.appendChild(ogTitle);
     }
     ogTitle.setAttribute('content', title);
+
+    let twitterTitle = document.querySelector('meta[name="twitter:title"]');
+    if (!twitterTitle) {
+      twitterTitle = document.createElement('meta');
+      twitterTitle.setAttribute('name', 'twitter:title');
+      document.head.appendChild(twitterTitle);
+    }
+    twitterTitle.setAttribute('content', title);
     
   }, [title, description]);
 }

@@ -57,8 +57,8 @@ export default function BoardGuardScreen() {
               
               <div className="grid grid-cols-1 gap-4">
                 <p className="font-mono text-[10px] text-gold uppercase tracking-widest mb-2">Program Deliverables & Outcomes</p>
-                <div className="overflow-hidden rounded-xl border border-white/5">
-                  <table className="w-full text-left text-xs">
+                <div className="overflow-x-auto rounded-xl border border-white/5">
+                  <table className="w-full text-left text-xs min-w-[500px] lg:min-w-0">
                     <thead className="bg-white/5 font-mono text-[8px] uppercase tracking-widest text-text-muted">
                       <tr>
                         <th className="px-4 py-2">Deliverable</th>

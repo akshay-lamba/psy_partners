@@ -1,5 +1,6 @@
 {
   "name": "Psy Partners",
   "description": "Board-level AI governance and transition readiness advisory services.",
-  "requestFramePermissions": []
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
