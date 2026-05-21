@@ -7,6 +7,14 @@ import usePageSEO from '../hooks/usePageSEO';
 
 const signals = [
   {
+    id: "006",
+    author: "Gautam Mohanty",
+    domain: "Real Estate AI",
+    pdfUrl: "https://b2006858-57c1-480a-9730-8e9f2057acb9.usrfiles.com/ugd/b20068_402ef1882bfd4e6682b45c8f153339c2.pdf",
+    title: "The K Human",
+    excerpt: "The K-Economy divides us now. Multipliers leverage AI to keep their people, capture deep context, and grow exponentially, while Shrinkers cut headcount, bleed institutional context, and become hollow. Secure your position on the upper stroke with five tactical human moves.",
+  },
+  {
     id: "005",
     author: "Dr. Nicolas Hamelin",
     domain: "Education AI",
