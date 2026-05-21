@@ -7,6 +7,14 @@ import usePageSEO from '../hooks/usePageSEO';
 
 const signals = [
   {
+    id: "005",
+    author: "Dr. Nicolas Hamelin",
+    domain: "Education AI",
+    pdfUrl: "https://b2006858-57c1-480a-9730-8e9f2057acb9.usrfiles.com/ugd/b20068_249559aca302492e9ca153264d5102a9.pdf",
+    title: "The CEO's Mandate",
+    excerpt: "95% of AI pilots die in the dark because enterprises attempt to delegate thinking to machines. The true mandate of a CEO is to prevent 'Context Leak' — retaining your people's deep, unwritten institutional context to construct a proprietary, compounding Intellectual Moat.",
+  },
+  {
     id: "004",
     author: "Akshay Lamba",
     domain: "Business AI",
