@@ -70,23 +70,54 @@ export default function IntelligenceScreen() {
         {/* Hero Section */}
         <section className="px-6 pb-20 border-b border-white/5 bg-[radial-gradient(circle_at_top_right,rgba(184,115,51,0.05),transparent_40%)]">
           <div className="max-w-7xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <h1 className="font-display text-5xl md:text-7xl lg:text-8xl text-white tracking-tight leading-[0.9] mb-8">
-                TRANSITION <br /> <span className="text-gold">SIGNALS.</span>
-              </h1>
-              <div className="flex items-center gap-6 mb-8">
-                <p className="max-w-2xl font-serif text-xl text-text-muted leading-relaxed">
-                  We move organizations from Governance Paralysis to Deployed Advantage. No fluff. No generic consulting. Just sector-specific intelligence terminals.
-                </p>
-              </div>
-              <div className="font-mono text-[10px] text-gold/60 uppercase tracking-[0.4em]">
-                #TransitionNotTransformation &nbsp; #EverythingEverytime
-              </div>
-            </motion.div>
+            <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+              {/* Text Content */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="lg:col-span-7 flex flex-col justify-center"
+              >
+                <h1 className="font-display text-5xl md:text-7xl lg:text-8xl text-white tracking-tight leading-[0.9] mb-8">
+                  TRANSITION <br /> <span className="text-gold">SIGNALS.</span>
+                </h1>
+                <div className="flex items-center gap-6 mb-8">
+                  <p className="max-w-2xl font-serif text-xl text-text-muted leading-relaxed">
+                    We move organizations from Governance Paralysis to Deployed Advantage. No fluff. No generic consulting. Just sector-specific intelligence terminals.
+                  </p>
+                </div>
+                <div className="font-mono text-[10px] text-gold/60 uppercase tracking-[0.4em]">
+                  #TransitionNotTransformation &nbsp; #EverythingEverytime
+                </div>
+              </motion.div>
+
+              {/* Framed Image */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.98, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.15 }}
+                className="lg:col-span-5 flex justify-center lg:justify-end"
+              >
+                <div className="relative p-3 bg-void border border-white/10 rounded-lg group max-w-lg w-full shadow-2xl shadow-black/80">
+                  {/* Outer glowing/accent corner lines for classy framing */}
+                  <div className="absolute top-0 left-0 w-6 h-6 border-t border-l border-gold/40 group-hover:border-gold transition-colors duration-700"></div>
+                  <div className="absolute top-0 right-0 w-6 h-6 border-t border-r border-gold/40 group-hover:border-gold transition-colors duration-700"></div>
+                  <div className="absolute bottom-0 left-0 w-6 h-6 border-b border-l border-gold/40 group-hover:border-gold transition-colors duration-700"></div>
+                  <div className="absolute bottom-0 right-0 w-6 h-6 border-b border-r border-gold/40 group-hover:border-gold transition-colors duration-700"></div>
+                  
+                  <div className="relative overflow-hidden rounded border border-white/5 bg-void">
+                    <img 
+                      src="https://static.wixstatic.com/media/b20068_a15c4f31a18c4955b9073845bed22101~mv2.jpg" 
+                      alt="Sovereign AI Governance" 
+                      referrerPolicy="no-referrer"
+                      className="w-full h-auto block grayscale hover:grayscale-0 transition-all duration-1000 ease-in-out scale-100 group-hover:scale-[1.01]"
+                    />
+                    {/* Subtle border overlay */}
+                    <div className="absolute inset-0 border border-white/5 pointer-events-none"></div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
           </div>
         </section>
 
