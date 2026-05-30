@@ -7,6 +7,14 @@ import usePageSEO from '../hooks/usePageSEO';
 
 const signals = [
   {
+    id: "007",
+    author: "Akshay Lamba",
+    domain: "Business AI",
+    pdfUrl: "https://b2006858-57c1-480a-9730-8e9f2057acb9.usrfiles.com/ugd/b20068_27b6069b1793426684a98caff837f5ec.pdf",
+    title: "The Efficiency Illusion",
+    excerpt: "Treating AI as a human replacement is a profound strategic fallacy that destroys competitive moats and forces enterprises into the 'Pure Efficiency Trap.' True differentiation and long-term viability come from building localized Sovereign Knowledge Systems to leverage and scale elite human talent.",
+  },
+  {
     id: "006",
     author: "Gautam Mohanty",
     domain: "Real Estate AI",
