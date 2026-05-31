@@ -94,9 +94,6 @@ export default function IntelligenceScreen() {
                     We move organizations from Governance Paralysis to Deployed Advantage. No fluff. No generic consulting. Just sector-specific intelligence terminals.
                   </p>
                 </div>
-                <div className="font-mono text-[10px] text-gold/60 uppercase tracking-[0.4em]">
-                  #TransitionNotTransformation &nbsp; #EverythingEverytime
-                </div>
               </motion.div>
 
               {/* Framed Image */}
