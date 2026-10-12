@@ -3,7 +3,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-  <!-- Home Page -->
+  <!-- Core Terminals -->
   <url>
     <loc>https://www.psy.partners/</loc>
     <lastmod>2026-10-12</lastmod>
@@ -11,7 +11,6 @@
     <priority>1.0</priority>
   </url>
   
-  <!-- BoardGuard AI -->
   <url>
     <loc>https://www.psy.partners/boardguard</loc>
     <lastmod>2026-10-12</lastmod>
@@ -19,7 +18,6 @@
     <priority>0.9</priority>
   </url>
   
-  <!-- Transition AI -->
   <url>
     <loc>https://www.psy.partners/transition</loc>
     <lastmod>2026-10-12</lastmod>
@@ -27,7 +25,6 @@
     <priority>0.9</priority>
   </url>
   
-  <!-- Velocity AI -->
   <url>
     <loc>https://www.psy.partners/velocity</loc>
     <lastmod>2026-10-12</lastmod>
@@ -35,19 +32,74 @@
     <priority>0.9</priority>
   </url>
   
-  <!-- POV / Intelligence Signals -->
   <url>
     <loc>https://www.psy.partners/pov</loc>
     <lastmod>2026-10-12</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <priority>0.95</priority>
   </url>
   
-  <!-- Team & Credentials -->
   <url>
     <loc>https://www.psy.partners/team</loc>
     <lastmod>2026-10-12</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Transition Signals Deep Links -->
+  <url>
+    <loc>https://www.psy.partners/pov/008</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://www.psy.partners/pov/007</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://www.psy.partners/pov/006</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://www.psy.partners/pov/005</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://www.psy.partners/pov/004</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://www.psy.partners/pov/003</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://www.psy.partners/pov/002</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://www.psy.partners/pov/001</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
   </url>
 </urlset>

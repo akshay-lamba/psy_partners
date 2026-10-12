@@ -11,7 +11,7 @@ export interface SEOProps {
   jsonLd?: Record<string, any> | Array<Record<string, any>>;
 }
 
-const DEFAULT_IMAGE = 'https://static.wixstatic.com/media/b20068_95a6d49567064891ac4c729dab9acc8e~mv2.jpeg';
+const DEFAULT_IMAGE = 'https://www.psy.partners/og-image.jpg';
 const BASE_URL = 'https://www.psy.partners';
 
 function updateMetaTag(attributeName: 'name' | 'property', attributeValue: string, content: string) {
@@ -69,6 +69,7 @@ export default function usePageSEO({
     // 5. OpenGraph & Twitter Titles
     updateMetaTag('property', 'og:title', title);
     updateMetaTag('name', 'twitter:title', title);
+    updateMetaTag('property', 'og:site_name', 'Psy Partners - AI Transition');
 
     // 6. URLs
     updateMetaTag('property', 'og:url', fullCanonicalUrl);
@@ -79,6 +80,13 @@ export default function usePageSEO({
     updateMetaTag('property', 'og:image', image);
     updateMetaTag('property', 'og:image:secure_url', image);
     updateMetaTag('name', 'twitter:image', image);
+    if (image.endsWith('.png')) {
+      updateMetaTag('property', 'og:image:type', 'image/png');
+    } else {
+      updateMetaTag('property', 'og:image:type', 'image/jpeg');
+    }
+    updateMetaTag('property', 'og:image:width', '1200');
+    updateMetaTag('property', 'og:image:height', '630');
 
     // 8. Dynamic Page-level Structured Data (JSON-LD)
     const scriptId = 'page-json-ld';

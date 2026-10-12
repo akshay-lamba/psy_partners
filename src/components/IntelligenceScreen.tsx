@@ -1,85 +1,52 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useLocation, Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { FileText, ArrowRight } from 'lucide-react';
+import { FileText, ArrowRight, Copy, Check, ExternalLink, Bookmark } from 'lucide-react';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import usePageSEO from '../hooks/usePageSEO';
-import { trackDownload } from '../utils/analytics';
-
-const signals = [
-  {
-    id: "008",
-    author: "Akshay Lamba",
-    domain: "Business AI",
-    pdfUrl: "https://42ae7d60-8d7b-4cc0-be9e-7f4325977122.usrfiles.com/ugd/42ae7d_f6554051e29347bca39074a59d2f0d07.pdf",
-    title: "Orchestrating Enterprise Maturation",
-    excerpt: "Fifty years of systemic evolution naturally culminates in active operational orchestration. Moving from passive systems of record to active systems of agency, Enterprise Resource Orchestration (ERO) animates accumulated organizational knowledge into autonomous execution.",
-  },
-  {
-    id: "007",
-    author: "Akshay Lamba",
-    domain: "Business AI",
-    pdfUrl: "https://b2006858-57c1-480a-9730-8e9f2057acb9.usrfiles.com/ugd/b20068_27b6069b1793426684a98caff837f5ec.pdf",
-    title: "The Efficiency Illusion",
-    excerpt: "Treating AI as a human replacement is a profound strategic fallacy that destroys competitive moats and forces enterprises into the 'Pure Efficiency Trap.' True differentiation and long-term viability come from building localized Sovereign Knowledge Systems to leverage and scale elite human talent.",
-  },
-  {
-    id: "006",
-    author: "Gautam Mohanty",
-    domain: "Real Estate AI",
-    pdfUrl: "https://b2006858-57c1-480a-9730-8e9f2057acb9.usrfiles.com/ugd/b20068_402ef1882bfd4e6682b45c8f153339c2.pdf",
-    title: "The K Human",
-    excerpt: "The K-Economy divides us now. Multipliers leverage AI to keep their people, capture deep context, and grow exponentially, while Shrinkers cut headcount, bleed institutional context, and become hollow. Secure your position on the upper stroke with five tactical human moves.",
-  },
-  {
-    id: "005",
-    author: "Dr. Nicolas Hamelin",
-    domain: "Education AI",
-    pdfUrl: "https://b2006858-57c1-480a-9730-8e9f2057acb9.usrfiles.com/ugd/b20068_249559aca302492e9ca153264d5102a9.pdf",
-    title: "The CEO's Mandate",
-    excerpt: "95% of AI pilots die in the dark because enterprises attempt to delegate thinking to machines. The true mandate of a CEO is to prevent 'Context Leak' — retaining your people's deep, unwritten institutional context to construct a proprietary, compounding Intellectual Moat.",
-  },
-  {
-    id: "004",
-    author: "Akshay Lamba",
-    domain: "Business AI",
-    pdfUrl: "https://b2006858-57c1-480a-9730-8e9f2057acb9.usrfiles.com/ugd/b20068_33c1ee7f74bd4f858edd4fdd841cc97c.pdf",
-    title: "Your Data Never Leaves Your Building",
-    excerpt: "You own the intelligence outright — the hardware, the model, the outputs. It compounds in business value the longer you run it. Every competitor using rented cloud tools is feeding their business data to someone else's servers.",
-  },
-  {
-    id: "003",
-    author: "Gautam Mohanty",
-    domain: "Real Estate AI",
-    pdfUrl: "https://b2006858-57c1-480a-9730-8e9f2057acb9.usrfiles.com/ugd/b20068_7908a710fe444ab2899aa30fbc6bfa57.pdf",
-    title: "Sovereign AI Design",
-    excerpt: "Instead of relying on external providers who can change rules or raise prices, a sovereign moat is built on a private, secure internal AI setup. This ensures that your most precious asset—your corporate intelligence—stays 'in your house' and remains safe from the outside world.",
-  },
-  {
-    id: "002",
-    author: "Akshay Lamba",
-    domain: "Business AI",
-    pdfUrl: "https://b2006858-57c1-480a-9730-8e9f2057acb9.usrfiles.com/ugd/b20068_002c510789154f0885f2ead1f13a31ef.pdf",
-    title: "The Career Stack",
-    excerpt: "Why every layer of the organization has the same AI story — and why every layer is wrong in the same way. Scaling judgment over output.",
-  },
-  {
-    id: "001",
-    author: "Dr. Nicolas Hamelin",
-    domain: "Education AI",
-    pdfUrl: "https://b2006858-57c1-480a-9730-8e9f2057acb9.usrfiles.com/ugd/b20068_cbb3d8eb8ac648538736b348c9dbba3f.pdf",
-    title: "The AI Transition System",
-    excerpt: "From Governance Paralysis to Deployed Advantage. A comprehensive framework for moving organizational intelligence from pilot stall to compounding capability.",
-  }
-];
+import { trackDownload, trackEvent } from '../utils/analytics';
+import { SIGNALS } from '../data/signals';
 
 export default function IntelligenceScreen() {
+  const location = useLocation();
+  const [highlightedId, setHighlightedId] = useState<string | null>(null);
+  const [copiedId, setCopiedId] = useState<string | null>(null);
+
   const HERO_IMAGE = "https://static.wixstatic.com/media/b20068_a15c4f31a18c4955b9073845bed22101~mv2.jpg";
+
+  // Check URL hash or query params on load to support direct deep linking within the page
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const querySignal = params.get('signal');
+    const hash = location.hash.replace(/^#/, '');
+
+    const targetId = querySignal || hash;
+    if (targetId) {
+      const clean = targetId.toLowerCase().replace(/^signal-/, '');
+      const matched = SIGNALS.find(s => 
+        s.id.toLowerCase() === clean || 
+        parseInt(s.id, 10).toString() === clean ||
+        s.slug.toLowerCase() === clean
+      );
+
+      if (matched) {
+        setHighlightedId(matched.id);
+        const timer = setTimeout(() => {
+          const el = document.getElementById(`signal-${matched.id}`) || document.getElementById(matched.id);
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        }, 300);
+        return () => clearTimeout(timer);
+      }
+    }
+  }, [location]);
 
   usePageSEO({
     title: "POV | Transition Signals — Psy Partners",
-    description: "Exclusive strategic points-of-view from Psy Partners leadership on Sovereign AI, Enterprise Resource Orchestration, and the AI Transition System.",
-    keywords: "Transition Signals, Enterprise Resource Orchestration, Akshay Lamba, Gautam Mohanty, Dr. Nicolas Hamelin, AI Governance POV, Sovereign AI, The K Human, The Efficiency Illusion",
+    description: "Exclusive strategic points-of-view from Psy Partners leadership on Sovereign AI, Enterprise Resource Orchestration, and the AI Transition System. Explore deep links and terminal briefs.",
+    keywords: "Transition Signals, Enterprise Resource Orchestration, Akshay Lamba, Gautam Mohanty, Dr. Nicolas Hamelin, AI Governance POV, Sovereign AI, The K Human, The Efficiency Illusion, Deeplinks",
     canonicalPath: "/pov",
     image: HERO_IMAGE,
     jsonLd: {
@@ -94,7 +61,7 @@ export default function IntelligenceScreen() {
       },
       "mainEntity": {
         "@type": "ItemList",
-        "itemListElement": signals.map((s, index) => ({
+        "itemListElement": SIGNALS.map((s, index) => ({
           "@type": "ListItem",
           "position": index + 1,
           "item": {
@@ -107,13 +74,38 @@ export default function IntelligenceScreen() {
               "jobTitle": `Managing Partner — ${s.domain}`
             },
             "description": s.excerpt,
-            "url": s.pdfUrl,
+            "url": `https://www.psy.partners/pov/${s.id}`,
+            "sameAs": s.pdfUrl,
             "encodingFormat": "application/pdf"
           }
         }))
       }
     }
   });
+
+  const handleCopyCardLink = async (e: React.MouseEvent, signalId: string) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const origin = typeof window !== 'undefined' ? window.location.origin : 'https://www.psy.partners';
+    const link = `${origin}/pov/${signalId}`;
+
+    try {
+      await navigator.clipboard.writeText(link);
+      setCopiedId(signalId);
+      trackEvent('copy_deep_link_from_list', { signal_id: signalId, link });
+      setTimeout(() => setCopiedId(null), 2500);
+    } catch {
+      const input = document.createElement('input');
+      input.value = link;
+      document.body.appendChild(input);
+      input.select();
+      document.execCommand('copy');
+      document.body.removeChild(input);
+      setCopiedId(signalId);
+      setTimeout(() => setCopiedId(null), 2500);
+    }
+  };
 
   return (
     <div className="w-full bg-void text-text-primary selection:bg-gold selection:text-void flex flex-col min-h-screen">
@@ -131,12 +123,15 @@ export default function IntelligenceScreen() {
                 transition={{ duration: 0.8 }}
                 className="lg:col-span-7 flex flex-col justify-center text-center lg:text-left"
               >
+                <div className="inline-flex items-center gap-2 self-center lg:self-start px-3.5 py-1.5 rounded-full border border-gold/30 bg-gold/5 font-mono text-[10px] sm:text-xs text-gold uppercase tracking-[0.2em] mb-4">
+                  <Bookmark className="w-3 h-3" /> Direct Deep Links Active
+                </div>
                 <h1 className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-white tracking-tight leading-[0.95] sm:leading-[0.9] mb-6 sm:mb-8">
                   TRANSITION <br /> <span className="text-gold">SIGNALS.</span>
                 </h1>
                 <div className="flex items-center justify-center lg:justify-start gap-6 mb-4">
                   <p className="max-w-2xl font-serif text-lg sm:text-xl text-text-muted leading-relaxed">
-                    We move organizations from Governance Paralysis to Deployed Advantage. No fluff. No generic consulting. Just sector-specific intelligence terminals.
+                    We move organizations from Governance Paralysis to Deployed Advantage. No fluff. No generic consulting. Just sector-specific intelligence terminals with direct executive deeplinks.
                   </p>
                 </div>
               </motion.div>
@@ -181,73 +176,120 @@ export default function IntelligenceScreen() {
                 TRANSITION SIGNALS
               </h2>
               <p className="font-mono text-[10px] sm:text-xs text-text-muted tracking-[0.35em] sm:tracking-[0.4em] uppercase">
-                Intelligence Drops / Point of View
+                Intelligence Drops / Point of View / Direct Deeplinks
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-              {signals.map((signal, idx) => (
-                <motion.div 
-                  key={signal.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.08 }}
-                  className="group relative overflow-hidden rounded-2xl border border-white/5 bg-white/[0.02] hover:border-gold/30 hover:bg-white/[0.05] transition-all duration-700 p-6 sm:p-8 md:p-10 flex flex-col h-full"
-                >
-                  <div className="absolute top-0 right-0 p-6 sm:p-8">
-                    <FileText className="w-8 h-8 sm:w-10 sm:h-10 text-gold/10 group-hover:text-gold/25 transition-colors duration-500" />
-                  </div>
-                  
-                  <div className="flex flex-col h-full relative z-10">
-                    <div className="font-mono text-gold mb-2 text-[10px] sm:text-[11px] tracking-[0.2em] uppercase font-semibold">
-                       Transition Signal #{signal.id}
+              {SIGNALS.map((signal, idx) => {
+                const isHighlighted = highlightedId === signal.id;
+                const isCopied = copiedId === signal.id;
+
+                return (
+                  <motion.div 
+                    key={signal.id}
+                    id={`signal-${signal.id}`}
+                    data-slug={signal.slug}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.06 }}
+                    className={`group relative overflow-hidden rounded-2xl border transition-all duration-700 p-6 sm:p-8 md:p-10 flex flex-col h-full scroll-mt-32 ${
+                      isHighlighted
+                        ? 'border-gold bg-gold/[0.08] shadow-[0_0_30px_rgba(184,115,51,0.3)] ring-1 ring-gold'
+                        : 'border-white/5 bg-white/[0.02] hover:border-gold/30 hover:bg-white/[0.05]'
+                    }`}
+                  >
+                    <div className="absolute top-0 right-0 p-6 sm:p-8 flex items-center gap-2">
+                      {/* Copy Direct Deep Link Button on Card */}
+                      <button
+                        type="button"
+                        onClick={(e) => handleCopyCardLink(e, signal.id)}
+                        className="p-2 rounded-lg bg-white/5 hover:bg-gold/20 text-text-muted hover:text-gold transition-colors"
+                        title={`Copy direct deep link for Signal #${signal.id}`}
+                        aria-label={`Copy direct deep link for Signal #${signal.id}`}
+                      >
+                        {isCopied ? (
+                          <Check className="w-4 h-4 text-emerald-400" />
+                        ) : (
+                          <Copy className="w-4 h-4" />
+                        )}
+                      </button>
+
+                      <FileText className="w-8 h-8 sm:w-10 sm:h-10 text-gold/10 group-hover:text-gold/25 transition-colors duration-500" />
                     </div>
                     
-                    <div className="mb-6 sm:mb-8">
-                      <h3 className="font-display text-xl sm:text-2xl text-white group-hover:text-gold transition-colors duration-500 leading-tight">
-                        {signal.author}
-                      </h3>
-                      <div className="font-mono text-[9px] sm:text-[10px] text-text-muted uppercase tracking-[0.25em] sm:tracking-[0.3em] mt-1">
-                        Managing Partner — {signal.domain}
+                    <div className="flex flex-col h-full relative z-10">
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="font-mono text-gold text-[10px] sm:text-[11px] tracking-[0.2em] uppercase font-semibold">
+                          Transition Signal #{signal.id}
+                        </span>
+                        {isCopied && (
+                          <span className="font-mono text-[10px] text-emerald-400 tracking-wider animate-pulse">
+                            • Link Copied!
+                          </span>
+                        )}
+                      </div>
+                      
+                      <div className="mb-6 sm:mb-8">
+                        <h3 className="font-display text-xl sm:text-2xl text-white group-hover:text-gold transition-colors duration-500 leading-tight">
+                          {signal.author}
+                        </h3>
+                        <div className="font-mono text-[9px] sm:text-[10px] text-text-muted uppercase tracking-[0.25em] sm:tracking-[0.3em] mt-1">
+                          Managing Partner — {signal.domain}
+                        </div>
+                      </div>
+
+                      <div className="mb-8 sm:mb-10 flex-grow">
+                        <Link 
+                          to={`/pov/${signal.id}`}
+                          className="block group/title"
+                        >
+                          <h4 className="font-serif text-lg sm:text-xl text-white/95 mb-3 sm:mb-4 italic leading-snug group-hover/title:text-gold transition-colors">
+                            "{signal.title}"
+                          </h4>
+                        </Link>
+                        <p className="font-serif text-base sm:text-lg text-text-muted leading-relaxed">
+                          {signal.excerpt}
+                        </p>
+                      </div>
+                      
+                      <div className="mt-auto pt-6 border-t border-white/5 flex flex-wrap items-center justify-between gap-3">
+                        {/* Direct Deep Link button */}
+                        <Link
+                          to={`/pov/${signal.id}`}
+                          className="inline-flex items-center gap-2 font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.2em] text-gold hover:text-white transition-colors py-2"
+                        >
+                          Deep Dive <ExternalLink className="w-3 h-3" />
+                        </Link>
+
+                        {/* PDF Download Link */}
+                        {signal.pdfUrl ? (
+                          <a 
+                            href={signal.pdfUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => trackDownload(`Transition Signal #${signal.id} - ${signal.title}`, signal.pdfUrl)}
+                            className="inline-flex items-center justify-center gap-2 sm:gap-2.5 text-white/90 font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.18em] group/link hover:text-gold hover:border-gold/40 transition-colors px-4 py-2 border border-white/10 rounded-full bg-white/5 min-h-[40px]"
+                            aria-label={`Download Transition Signal #${signal.id} PDF`}
+                          >
+                            PDF <ArrowRight className="w-3 h-3 transition-transform group-hover/link:translate-x-1" />
+                          </a>
+                        ) : (
+                          <button 
+                            disabled
+                            className="inline-flex items-center justify-center gap-2 text-white/40 font-mono text-[10px] uppercase tracking-[0.18em] px-3.5 py-2 border border-white/5 rounded-full cursor-not-allowed min-h-[40px]"
+                          >
+                            Coming Soon
+                          </button>
+                        )}
                       </div>
                     </div>
 
-                    <div className="mb-8 sm:mb-10 flex-grow">
-                      <h4 className="font-serif text-lg sm:text-xl text-white/95 mb-3 sm:mb-4 italic leading-snug">
-                        "{signal.title}"
-                      </h4>
-                      <p className="font-serif text-base sm:text-lg text-text-muted leading-relaxed">
-                        {signal.excerpt}
-                      </p>
-                    </div>
-                    
-                    <div className="mt-auto pt-6 border-t border-white/5">
-                      {signal.pdfUrl ? (
-                        <a 
-                          href={signal.pdfUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          onClick={() => trackDownload(`Transition Signal #${signal.id} - ${signal.title}`, signal.pdfUrl)}
-                          className="inline-flex items-center justify-center gap-2.5 sm:gap-3 text-white/90 font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.2em] group/link hover:text-gold hover:border-gold/40 transition-colors px-4 sm:px-5 py-2.5 border border-white/10 rounded-full bg-white/5 min-h-[44px]"
-                          aria-label={`Download Transition Signal #${signal.id} PDF`}
-                        >
-                          Download POV <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover/link:translate-x-1" />
-                        </a>
-                      ) : (
-                        <button 
-                          disabled
-                          className="inline-flex items-center justify-center gap-3 text-white/40 font-mono text-[10px] uppercase tracking-[0.2em] px-4 py-2.5 border border-white/5 rounded-full cursor-not-allowed min-h-[44px]"
-                        >
-                          Coming Soon <ArrowRight className="w-3.5 h-3.5" />
-                        </button>
-                      )}
-                    </div>
-                  </div>
-
-                  <div className="absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-gold/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                </motion.div>
-              ))}
+                    <div className="absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-gold/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
         </section>

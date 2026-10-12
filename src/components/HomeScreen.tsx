@@ -8,7 +8,7 @@ import { trackDownload } from '../utils/analytics';
 
 export default function HomeScreen() {
   usePageSEO({
-    title: "Psy Partners | Board-Level AI Transition System",
+    title: "Psy Partners - AI Transition",
     description: "Move from AI paralysis to deployed advantage with sector-specific AI intelligence terminals. Board-level AI governance and transition advisory.",
     keywords: "AI Transition, AI Governance, Board AI Advisory, Sovereign AI Systems, Psy Partners, BoardGuard AI, Transition AI, Velocity AI, Enterprise AI Strategy",
     canonicalPath: "/",
@@ -17,7 +17,7 @@ export default function HomeScreen() {
       "@type": "WebPage",
       "@id": "https://www.psy.partners/#webpage",
       "url": "https://www.psy.partners/",
-      "name": "Psy Partners | Board-Level AI Transition System",
+      "name": "Psy Partners - AI Transition",
       "description": "Move from AI paralysis to deployed advantage with sector-specific AI intelligence terminals.",
       "about": {
         "@id": "https://www.psy.partners/#organization"
